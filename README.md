@@ -45,7 +45,7 @@ category
 cost.money, cost.rp
 window.from (ISO) , window.to (ISO) , window.days (Saturday,Sunday)
 
-نمونهٔ سناریوهای آماده
+
 
 کیت استارتر روزانه با کول‌داون ۳۰ دقیقه و یک‌بار در هر وایپ:
 
