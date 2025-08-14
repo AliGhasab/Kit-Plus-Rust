@@ -76,3 +76,39 @@ oxide.grant group vip myserver.vip
 
 /kit.admin set loot randomize true
 /kit.admin set loot rolls 3
+
+استفاده از قابلیت تیمی (۳/۴/>۵)
+
+اسم کیت‌های ویژه تیم به‌صورت پیش‌فرض:
+
+برای ۳ نفره: team3
+
+برای ۴ نفره: team4
+
+این کیت‌ها فقط زمانی در UI دیده و قابل دریافت‌اند که اندازهٔ تیم:
+
+۳ ⇒ team3 فعال
+
+۴ ⇒ team3 + team4 فعال
+
+۵ ⇒ هر دو فعال
+
+بیشتر از ۵ ⇒ هر دو حذف می‌شن (نه نمایش، نه دریافت)
+
+پر کردن محتوا برای کیت‌های تیمی
+
+ابتدا خودت رو با آیتم‌های مدنظر تجهیز کن و:
+
+/kit.admin add team3
+/kit.admin add team4
+
+
+بعد اگر خواستی ویژگی‌هاشون رو هم ست کن (نمونه):
+
+/kit.admin set team3 description پکیج تیمی برای ۳ تا ۵ نفر
+/kit.admin set team3 cooldown 1h
+/kit.admin set team4 description پکیج قوی‌تر برای ۴ تا ۵ نفر
+/kit.admin set team4 cooldown 2h
+
+
+پرمیشن عمومی این دو کیت به‌صورت خودکار هم قابل استفاده‌ست: kitsplus.kit.team3 و kitsplus.kit.team4 (اگر لازم داشتی دقیق‌تر کنترل کنی).
