@@ -1,4 +1,5 @@
 # Kit-Plus
+Discord : https://discord.gg/cSD4A44nK4
 راه‌اندازی سریع
 
 فایل بالا را با نام KitsPlus.cs در oxide/plugins/ کپی کن.
