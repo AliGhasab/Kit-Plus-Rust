@@ -13,7 +13,7 @@ using Oxide.Game.Rust.Cui;
 
 namespace Oxide.Plugins
 {
-    [Info("KitsPlus", "AliGhasab", "1.1.0")]
+    [Info("KitsPlus", "AliGhasab", "1.0.0")]
     [Description("Modern UI kits with Persian localization, daily/weekly, streaks, team-triggered kits (3/4), and removal >5, time windows, costs, random bundles, and more.")]
     public class KitsPlus : RustPlugin
     {
