@@ -104,7 +104,7 @@ oxide.grant group vip myserver.vip
 /kit.admin add team4
 
 
-بعد اگر خواستی ویژگی‌هاشون رو هم ست کن (نمونه):
+ ویژگی‌هاشون رو هم ست کن (نمونه):
 
 /kit.admin set team3 description پکیج تیمی برای ۳ تا ۵ نفر
 /kit.admin set team3 cooldown 1h
