@@ -1,10 +1,10 @@
-// Reference: 2.0.0
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using Newtonsoft.Json;
 using Oxide.Core;
+using Oxide.Core.Configuration;
 using Oxide.Core.Libraries.Covalence;
 using Oxide.Core.Plugins;
 using Rust;
@@ -13,7 +13,7 @@ using Oxide.Game.Rust.Cui;
 
 namespace Oxide.Plugins
 {
-    [Info("KitsPlus", "AliGhasab", "1.0.0")]
+    [Info("KitsPlus", "AliGhasab", "1.0.1")]
     [Description("Modern UI kits with Persian localization, daily/weekly, streaks, team-triggered kits (3/4), and removal >5, time windows, costs, random bundles, and more.")]
     public class KitsPlus : RustPlugin
     {
@@ -907,24 +907,24 @@ namespace Oxide.Plugins
             OpenUI(player); // refresh
         }
 
-        private void GiveKitToPlayer(BasePlayer player, KitDef kit, bool byAdmin = false)
+                private void GiveKitToPlayer(BasePlayer player, KitDef kit, bool byAdmin = false)
         {
             var giveItems = new List<ItemEntry>();
             if (kit.Randomize && kit.Rolls > 0)
             {
-                var rnd = Pool.Get<System.Random>();
-                try
+                // Use System.Random directly (no Facepunch.Pool dependency)
+                var rnd = new System.Random();
+                var poolList = kit.Items.ToList();
+                for (int i = 0; i < kit.Rolls && poolList.Count > 0; i++)
                 {
-                    var poolList = kit.Items.ToList();
-                    for (int i = 0; i < kit.Rolls && poolList.Count > 0; i++)
-                    {
-                        var pick = poolList[rnd.Next(poolList.Count)];
-                        giveItems.Add(pick);
-                    }
+                    var pick = poolList[rnd.Next(poolList.Count)];
+                    giveItems.Add(pick);
                 }
-                finally { Pool.Free(ref rnd); }
             }
-            else giveItems = kit.Items.ToList();
+            else
+            {
+                giveItems = kit.Items.ToList();
+            }
 
             var dropped = false;
 
@@ -950,7 +950,6 @@ namespace Oxide.Plugins
 
             if (dropped) Reply(player, "InventoryFullDrop");
         }
-
         private ItemContainer ChooseContainer(BasePlayer player, string container)
         {
             switch ((container ?? "main").ToLower())
